@@ -51,6 +51,9 @@ $posts = [
   ]
 ];
 
+// Route to the Deletion Confirmation Modal View
+Route::get('posts/delete/{id}', [PostsController::class, 'delete'])->name('delete');
+
 Route::resource('posts', PostsController::class);
     // ->only(['index', 'show', 'create', 'store', 'edit', 'update']);
 
@@ -103,7 +106,6 @@ Route::prefix('/fun')->name('fun.')->group(function() use($posts) {
   })->name('json');
 
   Route::get('download', function() use($posts) {
-    return response()->download(public_path('/daniel.jpg'), 'face.jpg');
+    return response()->download(public_path('/daniel.jpg'), 'member-photo.jpg');
   })->name('download');
 });
-
