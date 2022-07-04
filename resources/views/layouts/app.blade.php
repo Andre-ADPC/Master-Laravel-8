@@ -16,7 +16,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
     </script>
-    {{--! Needed --}}
+    {{--! Needed for Modal Views and Flash Messages --}}
     <!-- jQuery JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
@@ -30,8 +30,18 @@
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="{{ route('home.index') }}">Home</a>
             <a class="p-2 text-dark" href="{{ route('home.contact') }}">Contact</a>
-            <a class="p-2 text-dark" href="{{ route('posts.index') }}">Blog Posts</a>
-            <a class="p-2 text-dark" href="{{ route('posts.create') }}">Add Blog Post</a>
+            {{-- Add Main Blog View with drop-down for Posts Index/New --}}
+            <a data-toggle="dropdown" class="dropdown-toggle p-2 text-dark" a href="#">Blog <strong
+                    class="caret"></strong></a>
+            <ul class="dropdown-menu">
+                <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">Blog Page</a></li>
+                <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">Blog Posts</a></li>
+                <li><a class="p-2 text-dark" href="{{ route('posts.create') }}">Add Blog Post</a></li>
+            </ul>
+            {{-- Add Search, Sign-in and Avatar --}}
+            <a class="p-2 text-dark" href="{{ route('home.index') }}">Search</a>
+            <a class="p-2 text-dark" href="{{ route('home.index') }}">Login</a>
+            <a class="p-2 text-dark" href="{{ route('home.index') }}">Avatar</a>
         </nav>
     </div>
     {{-- Flash Alerts --}}
